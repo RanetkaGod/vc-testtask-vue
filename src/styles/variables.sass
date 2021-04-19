@@ -1,0 +1,63 @@
+// Global variables
+$background-color: #ffffff
+$background-color-accessory: #FEEBEF
+$complementary-color: #FE4D4A
+$border-radius-main: 5px
+
+//Global extends
+%title
+  font-size: 22px
+  font-weight: 500
+%regular-text
+  font-size: 16px
+  font-weight: 400
+
+//Breakpoints
+$breakpoint-tablet: 768px
+
+@mixin tablet
+  @media (max-width: $breakpoint-tablet)
+    @content
+
+
+// InputRange
+$thumb-size: 25px
+$thumb-border: 8px solid $complementary-color
+$thumb-shadow-size: -8px
+$track-color: #E2E2E2
+$track-height: 9px
+$track-width: 100%
+
+
+%moz-thumb
+  box-sizing: border-box
+  border: $thumb-border
+  height: $thumb-size
+  width: $thumb-size
+  border-radius: 100%
+  background: #ffffff
+  cursor: pointer
+%webkit-thumb
+  box-sizing: border-box
+  border: $thumb-border
+  height: $thumb-size
+  width: $thumb-size
+  border-radius: 100%
+  background: #ffffff
+  cursor: pointer
+  -webkit-appearance: none
+  margin-top: -8px
+
+%webkit-track
+  width: 100%
+  height: $track-height
+  cursor: pointer
+  background: transparent
+  border-radius: $border-radius-main
+%moz-track
+  width: 100%
+  height: $track-height
+  cursor: pointer
+  background: transparent
+  border-radius: $border-radius-main
+
