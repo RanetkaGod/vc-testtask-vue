@@ -2,7 +2,7 @@
   <div id="app">
     <deposit-select @valueChanged='valueChanged'/>
     <transition-collapse>
-      <deposit-result id="deposit-result" v-if="showResult && Number(inputValue)!==0" :inputValue="inputValue"/>
+      <deposit-result id="deposit-result" v-if="showResult && Number(this.inputValue)!==0" :inputValue="inputValue"/>
     </transition-collapse>
   </div>
 </template>
@@ -38,7 +38,7 @@ export default {
   },
   methods: {
     valueChanged: function () {
-      this.showResult = true
+      this.showResult = Number(this.inputValue) !== 0;
       if (!Number(this.lastValue) && Number(this.inputValue)) // Чтобы мягкий сколл работал только при прошлом значении 0
         this.scrollToElement('deposit-result', 600, 'center', 'start')
       this.lastValue = this.inputValue
@@ -56,10 +56,14 @@ export default {
 body
   background: #e0e0e0
   position: relative
+  display: flex
+  flex-direction: row
+  justify-content: center
 
 #app
   font-family: 'Roboto', sans-serif
   max-width: 700px
+  width: 100%
   background: white
   display: block
 
