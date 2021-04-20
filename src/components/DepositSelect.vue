@@ -21,8 +21,6 @@ export default {
 @import "../styles/variables"
 
 .deposit-select
-  box-sizing: border-box
-  padding: 25px 25px
   width: 100%
   .content
     .content__item
@@ -32,7 +30,8 @@ export default {
       margin-bottom: 11px
     .content-subtitle
       @extend %regular-text
-  .input-form
-    margin-top: 48px
+  .content, .input-form
+    padding: 25px 25px
+
 
 </style>

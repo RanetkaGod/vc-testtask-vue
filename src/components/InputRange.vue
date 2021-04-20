@@ -69,7 +69,7 @@ export default {
     color: white
     font-size: 16px
     font-weight: 500
-    bottom: 28px
+    bottom: 30px
     left: 0
     transform-origin: 50% 50%
     transform: translateX(calc(-50% + 12.5px))

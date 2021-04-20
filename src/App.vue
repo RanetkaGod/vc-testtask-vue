@@ -2,7 +2,7 @@
   <div id="app">
     <deposit-select @valueChanged='valueChanged'/>
     <transition-collapse>
-      <deposit-result id="deposit-result" v-if="showResult" :inputValue="inputValue"/>
+      <deposit-result id="deposit-result" v-if="showResult && Number(inputValue)!==0" :inputValue="inputValue"/>
     </transition-collapse>
   </div>
 </template>
@@ -38,7 +38,7 @@ export default {
   methods: {
     valueChanged: function () {
       this.showResult = true
-      this.scrollToElement('deposit-result', 600)
+      this.scrollToElement('deposit-result', 600, 'center', 'start')
     }
   }
 }
@@ -52,11 +52,13 @@ export default {
 
 body
   background: #e0e0e0
+  position: relative
 
 #app
   font-family: 'Roboto', sans-serif
   max-width: 700px
   background: white
+  display: block
 
 .collapse-enter-active, .collapse-leave-active
   transition: all 2s ease

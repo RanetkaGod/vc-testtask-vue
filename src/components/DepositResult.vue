@@ -10,13 +10,13 @@
         <div class="sum-wrapper">
           <p class="sum"> {{ type.sumPrefix }}{{ calculatedIncome(key) | addNumberSpaces }} &#8381;</p>
         </div>
-        <p class="deposit-media-result__condition">{{ type.description }}</p>
+        <p class="deposit-media-result__condition">{{ type.description }} <modal-hints :hint="type.hint"/></p>
       </div>
     </div>
     <div class="dropdown">
       <transition-collapse>
         <div id="dropdown-content" class="dropdown-content" v-if="dropdownShown">
-          123
+          <readers-statistic :average-deposit="Number(inputValue)"/>
         </div>
       </transition-collapse>
       <div class="dropdown-navigation" @click="showDropdown">
@@ -38,10 +38,12 @@
 import CoinsCounter from "@/components/CoinsCounter";
 import mixin from "@/mixins/mixins";
 import TransitionCollapse from "@/components/TransitionCollapse";
+import ReadersStatistic from "@/components/ReadersStatistic";
+import ModalHints from "@/components/ModalHints";
 
 export default {
   name: "DepositResult",
-  components: {TransitionCollapse, CoinsCounter},
+  components: {ModalHints, ReadersStatistic, TransitionCollapse, CoinsCounter},
   props: [
     'inputValue'
   ],
@@ -50,15 +52,30 @@ export default {
     return {
       depositTypes: {
         save: {
-          description: 'если откладывать под матрас',
+          description: 'если складывать под матрас',
+          hint: {
+            text: 'В этом мало смысла — такие накопления «съедает» инфляция',
+            link: ''
+          } ,
           sumPrefix: '~'
         },
         deposit: {
           description: 'если откладывать на депозит',
+          hint: {
+            text: 'Ставки по вкладам различны в разных банках и зависят от многих факторов,' +
+                ' в частности, от ключевой ставки Центрального банка РФ¹',
+            link: 'https://vc.ru/promo/76505-alfa-kapital-yuridicheskaya-informaciya?ea=678fa71362d1b64dda32a1e6c54730abd442d756633f11fa1548bfcc17e7bfb5#1'
+          },
           sumPrefix: '~'
         },
         alfa: {
           description: 'если инвестировать в ПИФ «Альфа-Капитала»',
+          hint: {
+            text: 'Вы становитесь инвестором набора компаний, который определяют профессиональные управляющие. ' +
+                'Они решают, когда покупать и продавать ценные бумаги, чтобы обеспечить инвестиционный доход. ' +
+                'Купить или продать паи фонда можно в любой момент²',
+            link: 'https://vc.ru/promo/76505-alfa-kapital-yuridicheskaya-informaciya?ea=678fa71362d1b64dda32a1e6c54730abd442d756633f11fa1548bfcc17e7bfb5#2 '
+          },
           sumPrefix: 'до ~'
         }
       },
@@ -90,7 +107,7 @@ export default {
     showDropdown: function () {
       this.dropdownShown = !this.dropdownShown
       if (this.dropdownShown) {
-        this.scrollToElement('dropdown-content', 600)
+        this.scrollToElement('dropdown-content', 600, 'center', 'start')
       }
     },
   },
@@ -109,12 +126,12 @@ export default {
 .deposit-result
   width: 100%
   height: auto
-  overflow: hidden
 
   .content, .deposit-media
     padding: 0 25px 25px 25px
 
   .content
+    overflow: auto
     .content__item
       margin: 6px 0
 
@@ -127,7 +144,6 @@ export default {
 
     &-result
       position: relative
-
       .sum-wrapper
         display: flex
         flex-direction: row
@@ -135,14 +151,14 @@ export default {
         margin-top: 15px
 
       .sum
+        @extend %highlight-text
         margin: 0
         font-size: 25px
-        font-weight: 700
-        color: $complementary-color
 
       &__condition
         @extend %regular-text
         margin: 8px 0
+        white-space: normal
         display: inline-block
 
   .dropdown
@@ -151,6 +167,9 @@ export default {
     .dropdown-content
       overflow: hidden
       background: $background-color-accessory
+      display: flex
+      flex-direction: column
+      align-items: center
 
     .dropdown-navigation
       background: $background-color-accessory
@@ -200,8 +219,6 @@ export default {
       &:focus
         outline: none
 
-      &::-moz-focus-inner
-        border: 0
 
 .collapse-enter-active, .collapse-leave-active
   transition: all .2s ease

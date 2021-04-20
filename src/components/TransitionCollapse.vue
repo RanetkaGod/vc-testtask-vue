@@ -22,7 +22,6 @@ export default {
         if (!element.style.height) {
           element.style.height = '0px';
         }
-
         element.style.display = null;
       });
     },
