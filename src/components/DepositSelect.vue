@@ -4,7 +4,7 @@
       <p class="content__item content-title">Сколько денег вы откладываете в месяц?</p>
       <p class="content__item content-subtitle">Ответьте и узнаете, сколько копят другие.</p>
     </div>
-    <input-range class="input-form" />
+    <input-range class="input-form" @valueChanged="$emit('valueChanged')"/>
   </div>
 </template>
 

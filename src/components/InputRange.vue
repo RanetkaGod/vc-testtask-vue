@@ -7,7 +7,7 @@
             {{ inputValue | addNumberSpaces }} &#8381;
           </span>
       </div>
-      <input v-model="inputValue" @input="input($event)" class="input-range" type="range" :min="inputMinValue" :max="inputMaxValue" value="0"/>
+      <input v-model="inputValue" @change="$emit('valueChanged')" @input="input($event)" class="input-range" type="range" :min="inputMinValue" :max="inputMaxValue" value="0"/>
     </div>
     <span class="label label_to">50 000 &#8381;</span>
   </div>

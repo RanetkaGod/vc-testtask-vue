@@ -1,30 +1,45 @@
 <template>
   <div id="app">
-    <deposit-select/>
-    <deposit-result :inputValue="inputValue"/>
+    <deposit-select @valueChanged='valueChanged'/>
+    <transition-collapse>
+      <deposit-result id="deposit-result" v-if="showResult" :inputValue="inputValue"/>
+    </transition-collapse>
   </div>
 </template>
 
 <script>
 import DepositSelect from "@/components/DepositSelect";
 import DepositResult from "@/components/DepositResult";
+import smoothscroll from 'smoothscroll-polyfill'
+import mixin from "@/mixins/mixins";
+import TransitionCollapse from "@/components/TransitionCollapse";
 
 export default {
   name: 'App',
   components: {
+    TransitionCollapse,
     DepositResult,
-    DepositSelect
+    DepositSelect,
   },
+  mixins: [mixin],
   data() {
     return {
-      inputValue: 0
+      inputValue: 0,
+      showResult: false
     }
   },
   mounted: function () {
+    smoothscroll.polyfill()
     let vm = this
     this.$root.$on('inputDepositValue', function (value) {
       vm.inputValue = value
     })
+  },
+  methods: {
+    valueChanged: function () {
+      this.showResult = true
+      this.scrollToElement('deposit-result', 600)
+    }
   }
 }
 </script>
@@ -40,6 +55,17 @@ body
 
 #app
   font-family: 'Roboto', sans-serif
-  max-width: 680px
+  max-width: 700px
   background: white
+
+.collapse-enter-active, .collapse-leave-active
+  transition: all 2s ease
+  transform-origin: top
+
+.collapse-enter, .collapse-leave-to
+  max-height: 0
+
+.collapse-enter-to, .collapse-leave
+  max-height: 100%
+
 </style>
