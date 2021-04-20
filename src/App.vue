@@ -25,7 +25,8 @@ export default {
   data() {
     return {
       inputValue: 0,
-      showResult: false
+      showResult: false,
+      lastValue: 0
     }
   },
   mounted: function () {
@@ -38,7 +39,9 @@ export default {
   methods: {
     valueChanged: function () {
       this.showResult = true
-      this.scrollToElement('deposit-result', 600, 'center', 'start')
+      if (!Number(this.lastValue) && Number(this.inputValue)) // Чтобы мягкий сколл работал только при прошлом значении 0
+        this.scrollToElement('deposit-result', 600, 'center', 'start')
+      this.lastValue = this.inputValue
     }
   }
 }
