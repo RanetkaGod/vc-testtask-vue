@@ -1,20 +1,22 @@
 <template>
-  <div class="statistic">
-    <div class="statistic-visualisation">
-      <div class="statistic-visualisation-graph">
-        <div class="statistic__filler"></div>
-        <img class="statistic__image" :src="statisticImageUrl" alt="Средний вклад читателей"/>
-        <span class="statistic__money">~ {{ averageDeposit | addNumberSpaces }} &#8381;</span>
+  <div id="dropdown-content" class="statistic-wrapper">
+    <div class="statistic">
+      <div class="statistic-visualisation">
+        <div class="statistic-visualisation-graph">
+          <div class="statistic__filler"></div>
+          <img class="statistic__image" :src="statisticImageUrl" alt="Средний вклад читателей"/>
+          <span class="statistic__money">~ {{ averageDeposit | addNumberSpaces }} &#8381;</span>
+        </div>
+        <div class="statistic-description">
+          <p>в среднем откладывают читатели vc.ru</p>
+        </div>
       </div>
-      <div class="statistic-description">
-        <p>в среднем откладывают читатели vc.ru</p>
-      </div>
-    </div>
-    <div class="statistic-donuts">
-      <div class="statistic-donuts__item" v-for="(value, key) in readersStatistic" :key="key">
-        <chart-donut :percent="value.percent" circle-color="#fff" segment-color="#FE4D4A"/>
-        <span class="percentage">{{ value.percent }}%</span>
-        <span class="description">{{ value.description }}</span>
+      <div class="statistic-donuts">
+        <div class="statistic-donuts__item" v-for="(value, key) in readersStatistic" :key="key">
+          <chart-donut :percent="value.percent" circle-color="#fff" segment-color="#FE4D4A"/>
+          <span class="percentage">{{ value.percent }}%</span>
+          <span class="description">{{ value.description }}</span>
+        </div>
       </div>
     </div>
   </div>
@@ -74,56 +76,69 @@ export default {
 <style lang="sass" scoped>
 @import "../styles/variables"
 
-.statistic
+.statistic-wrapper
+  overflow: hidden
+  background: $background-color-accessory
   display: flex
-  width: 100%
   flex-direction: column
   align-items: center
-  padding: 20px 80px
 
-  .statistic-visualisation
-    display: flex
-    flex-direction: column
-    align-items: center
-
-    .statistic-visualisation-graph
-      display: flex
-      flex-direction: column
-      justify-content: space-between
-      align-items: center
-      padding: 20px
-      width: 200px
-      height: 200px
-      border-radius: 100%
-      background-color: $background-color-accessory-light
-
-      .statistic__money
-        @extend %highlight-text
-        font-size: 22px
-        margin-top: 14px
-  .statistic-donuts
+  .statistic
     display: flex
     width: 100%
-    flex-direction: row
-    justify-content: space-between
+    flex-direction: column
     align-items: center
-    margin-top: 10px
-    .statistic-donuts__item
+    padding: 20px 80px
+
+    .statistic-visualisation
       display: flex
       flex-direction: column
-      justify-content: center
       align-items: center
-      max-width: 190px
-      .percentage
-        @extend %highlight-text
-        font-size: 22px
-        margin: 10px 0
+
+      .statistic-visualisation-graph
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        align-items: center
+        padding: 20px
+        width: 200px
+        height: 200px
+        border-radius: 100%
+        background-color: $background-color-accessory-light
+
+        .statistic__money
+          @extend %highlight-text
+          font-size: 22px
+          margin-top: 14px
+
+    .statistic-donuts
+      display: flex
+      width: 100%
+      flex-direction: row
+      justify-content: space-between
+      align-items: center
+      margin-top: 10px
+
+      .statistic-donuts__item
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        max-width: 190px
+
+        .percentage
+          @extend %highlight-text
+          font-size: 22px
+          margin: 10px 0
+
 @include tablet
   .statistic
     .statistic-donuts
       flex-direction: column
+
       .statistic-donuts__item
         margin-bottom: 20px
+
         &:last-child
           margin-bottom: 0
 </style>

@@ -4,6 +4,7 @@ $background-color-accessory: #FEEBEF
 $background-color-accessory-light: #FFF6F8
 $complementary-color: #fe4d4a
 $border-radius-main: 5px
+$padding-main: 25px
 
 //Global extends
 %title
@@ -22,7 +23,6 @@ $breakpoint-tablet: 768px
 @mixin tablet
   @media (max-width: $breakpoint-tablet)
     @content
-
 
 // InputRange
 $thumb-size: 25px
@@ -64,4 +64,7 @@ $track-width: 100%
   cursor: pointer
   background: transparent
   border-radius: $border-radius-main
+
+//Tooltip
+$tooltip-padding: 16px 19px
 

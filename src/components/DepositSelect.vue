@@ -22,7 +22,9 @@ export default {
 
 .deposit-select
   width: 100%
+  padding: $padding-main
   .content
+    margin-bottom: 48px
     .content__item
       margin: 0
     .content-title
@@ -30,8 +32,5 @@ export default {
       margin-bottom: 11px
     .content-subtitle
       @extend %regular-text
-  .content, .input-form
-    padding: 25px 25px
-
 
 </style>

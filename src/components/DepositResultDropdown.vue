@@ -1,9 +1,7 @@
 <template>
   <div class="dropdown">
     <transition-collapse>
-      <div id="dropdown-content" class="dropdown-content" v-if="dropdownShown">
-        <readers-statistic :average-deposit="Number(inputValue)"/>
-      </div>
+      <readers-statistic v-if="dropdownShown" :average-deposit="Number(inputValue)"/>
     </transition-collapse>
     <div class="dropdown-navigation" @click="showDropdown">
       <p class="dropdown-navigation__text">
@@ -28,7 +26,7 @@ export default {
   },
   mixins: [mixin],
   props: [
-      'inputValue'
+    'inputValue'
   ],
   data() {
     return {
@@ -56,13 +54,6 @@ export default {
 
 .dropdown
   position: relative
-
-  .dropdown-content
-    overflow: hidden
-    background: $background-color-accessory
-    display: flex
-    flex-direction: column
-    align-items: center
 
   .dropdown-navigation
     background: $background-color-accessory

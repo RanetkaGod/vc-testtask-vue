@@ -39,7 +39,7 @@ export default {
   color: #ffffff
   background: $complementary-color
   border-radius: $border-radius-main
-  padding: 16px 19px
+  padding: $tooltip-padding
   width: 300px
   box-shadow: 0 9px 10px 0 rgba(254, 77, 74, 0.1)
   left: 0

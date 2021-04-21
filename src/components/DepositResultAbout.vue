@@ -25,7 +25,7 @@ export default {
   justify-content: center
   align-items: center
   height: 95px
-  padding: 0 25px 0 25px
+  padding: 0 $padding-main
 
   &__text
     font-weight: 500

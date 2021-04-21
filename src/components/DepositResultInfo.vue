@@ -17,11 +17,9 @@ export default {
 <style lang="sass" scoped>
 @import "../styles/variables"
 
-.content, .deposit-media
-  padding: 0 25px 25px 25px
-
 .content
   overflow: auto
+  padding: 0 $padding-main $padding-main $padding-main
 
   .content__item
     margin: 6px 0
