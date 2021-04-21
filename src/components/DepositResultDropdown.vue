@@ -1,7 +1,7 @@
 <template>
   <div class="dropdown">
     <transition-collapse>
-      <readers-statistic v-show="dropdownShown" :average-deposit="Number(inputValue)"/>
+      <readers-statistic v-if="dropdownShown" :average-deposit="Number(inputValue)"/>
     </transition-collapse>
     <div class="dropdown-navigation" @click="showDropdown">
       <p class="dropdown-navigation__text">
