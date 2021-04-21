@@ -1,11 +1,11 @@
 <template>
   <div class="deposit-media">
-    <div class="deposit-media-result" v-for="(type, key) in depositTypes" :key="key">
+    <div class="deposit-media--inner" v-for="(type, key) in depositTypes" :key="key">
       <coins-counter :calculated-income="calculatedIncome(key)"/>
       <div class="sum-wrapper">
         <p class="sum"> {{ type.sumPrefix }}{{ calculatedIncome(key) | addNumberSpaces }} &#8381;</p>
       </div>
-      <p class="deposit-media-result__condition">{{ type.description }}
+      <p class="deposit-media--inner__info">{{ type.description }}
         <media-hints :hint="type.hint"/>
       </p>
     </div>
@@ -86,7 +86,7 @@ export default {
   grid-template-columns: 1fr 1fr 1fr
   padding: 0 $padding-main $padding-main $padding-main
 
-  &-result
+  &--inner
     position: relative
     .sum-wrapper
       display: flex
@@ -99,7 +99,7 @@ export default {
       margin: 0
       font-size: 25px
 
-    &__condition
+    &__info
       @extend %regular-text
       margin: 8px 0
       white-space: normal
@@ -109,7 +109,12 @@ export default {
   .deposit-media
     grid-template-columns: 1fr
 
-    .deposit-media-result
+    &--inner
+      display: flex
+      flex-direction: column
+      align-items: center
       .sum-wrapper
-        justify-content: flex-start
+        justify-content: center
+      &__info
+        text-align: center
 </style>
