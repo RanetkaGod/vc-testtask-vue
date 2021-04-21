@@ -3,7 +3,7 @@
     <div class="statistic-visualisation">
       <div class="statistic-visualisation-graph">
         <div class="statistic__filler"></div>
-        <img class="statistic__image" :src="statisticImageUrl"/>
+        <img class="statistic__image" :src="statisticImageUrl" alt="Средний вклад читателей"/>
         <span class="statistic__money">~ {{ averageDeposit | addNumberSpaces }} &#8381;</span>
       </div>
       <div class="statistic-description">
