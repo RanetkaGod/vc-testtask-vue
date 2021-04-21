@@ -18,10 +18,11 @@ export default {
     const tooltipElem = this.$refs.tooltip
     const dropdownRect = tooltipElem.getBoundingClientRect()
     const dropdownRightX = dropdownRect.x + dropdownRect.width
-    if (dropdownRect.x < 0) {
+    console.log(appElem.getBoundingClientRect(), dropdownRect)
+    if (dropdownRect.x < appElem.getBoundingClientRect().x) {
       this.$refs.tooltip.style.left = '0';
       this.$refs.tooltip.style.right = 'auto';
-    } else if (dropdownRightX > appElem.getBoundingClientRect().width) {
+    } else if (dropdownRightX > appElem.getBoundingClientRect().width + appElem.getBoundingClientRect().x) {
       this.$refs.tooltip.style.left = 'auto';
       this.$refs.tooltip.style.right = '0';
     }
