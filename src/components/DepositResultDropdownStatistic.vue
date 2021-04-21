@@ -75,17 +75,12 @@ export default {
 @import "../styles/variables"
 
 .statistic-wrapper
-  overflow: hidden
   background: $background-color-accessory
-  display: flex
-  flex-direction: column
-  align-items: center
+  height: auto
+  width: 100%
 
   .statistic
-    display: flex
     width: 100%
-    flex-direction: column
-    align-items: center
     padding: 20px 80px
 
     .statistic-visualisation

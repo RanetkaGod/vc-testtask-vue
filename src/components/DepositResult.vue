@@ -29,11 +29,7 @@ export default {
 
 <style lang="sass" scoped>
 @import "../styles/variables"
-
-
 .deposit-result
   width: 100%
   height: auto
-
-
 </style>

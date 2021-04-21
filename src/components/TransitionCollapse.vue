@@ -20,7 +20,7 @@ export default {
     beforeEnter(element) {
       requestAnimationFrame(() => {
         if (!element.style.height) {
-          element.style.height = '0px';
+          element.style.maxHeight = '0px';
         }
         element.style.display = null;
       });
@@ -28,29 +28,29 @@ export default {
     enter(element) {
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
-          element.style.height = `${element.scrollHeight}px`;
+          element.style.maxHeight = `${element.scrollHeight}px`;
         });
       });
     },
     afterEnter(element) {
-      element.style.height = null;
+      element.style.maxHeight = null;
     },
     beforeLeave(element) {
       requestAnimationFrame(() => {
         if (!element.style.height) {
-          element.style.height = `${element.offsetHeight}px`;
+          element.style.maxHeight = `${element.offsetHeight}px`;
         }
       });
     },
     leave(element) {
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
-          element.style.height = '0px';
+          element.style.maxHeight = '0px';
         });
       });
     },
     afterLeave(element) {
-      element.style.height = null;
+      element.style.maxHeight = null;
     },
   }
 }
@@ -61,6 +61,6 @@ export default {
 .enter-active,
 .leave-active {
   overflow: hidden;
-  transition: height .6s ease;
+  transition: max-height .6s ease;
 }
 </style>

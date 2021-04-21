@@ -1,7 +1,7 @@
 <template>
   <div class="dropdown">
     <transition-collapse>
-      <readers-statistic v-if="dropdownShown" :average-deposit="Number(inputValue)"/>
+      <readers-statistic v-show="dropdownShown" :average-deposit="Number(inputValue)"/>
     </transition-collapse>
     <div class="dropdown-navigation" @click="showDropdown">
       <p class="dropdown-navigation__text">
@@ -14,15 +14,15 @@
 </template>
 
 <script>
-import TransitionCollapse from "@/components/TransitionCollapse";
 import ReadersStatistic from "@/components/DepositResultDropdownStatistic";
 import mixin from "@/mixins/mixins";
+import TransitionCollapse from "@/components/TransitionCollapse";
 
 export default {
   name: "DepositResultDropdown",
   components: {
+    TransitionCollapse,
     ReadersStatistic,
-    TransitionCollapse
   },
   mixins: [mixin],
   props: [
