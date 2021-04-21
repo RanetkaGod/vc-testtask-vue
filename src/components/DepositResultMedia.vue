@@ -104,4 +104,12 @@ export default {
       margin: 8px 0
       white-space: normal
       display: inline-block
+
+@include tablet
+  .deposit-media
+    grid-template-columns: 1fr
+
+    .deposit-media-result
+      .sum-wrapper
+        justify-content: flex-start
 </style>

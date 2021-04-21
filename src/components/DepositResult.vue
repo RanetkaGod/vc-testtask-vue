@@ -35,12 +35,5 @@ export default {
   width: 100%
   height: auto
 
-@include tablet
-  .deposit-result
-    .deposit-media
-      grid-template-columns: 1fr
 
-      .deposit-media-result
-        .sum-wrapper
-          justify-content: flex-start
 </style>

@@ -132,13 +132,14 @@ export default {
           margin: 10px 0
 
 @include tablet
-  .statistic
-    .statistic-donuts
-      flex-direction: column
+  .statistic-wrapper
+    .statistic
+      .statistic-donuts
+        flex-direction: column
 
-      .statistic-donuts__item
-        margin-bottom: 20px
+        .statistic-donuts__item
+          margin-bottom: 20px
 
-        &:last-child
-          margin-bottom: 0
+          &:last-child
+            margin-bottom: 0
 </style>
