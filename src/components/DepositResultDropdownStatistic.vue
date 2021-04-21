@@ -30,19 +30,17 @@ export default {
   components: {ChartDonut},
   props: {
     averageDeposit: Number, // Средний депозит
-    depositThousand: Number, // Процент людей, откладывающих 1000 и более
-    depositTenThousand: Number // Процент людей, откладывающих 10000 и более
   },
   data() {
     return {
       readersStatistic: {
         oneThousand: {
-          percent: 50,
+          percent: 52,
           description: 'читателей откладывают\n' +
               'больше 1000 ₽ в месяц'
         },
         tenThousand: {
-          percent: 10,
+          percent:9,
           description: 'читателей откладывают\n' +
               'больше 10 000 ₽ в месяц'
         }
@@ -68,7 +66,7 @@ export default {
         imageUrl = require('../assets/money-5.png')
       }
       return imageUrl
-    }
+    },
   },
 }
 </script>
