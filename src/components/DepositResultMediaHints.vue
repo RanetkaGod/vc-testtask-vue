@@ -1,6 +1,6 @@
 <template>
   <span class="hint-wrapper">
-      <button id="hint-button" class="hint-button" :class="{ active: isActive }" @click="showTooltip">
+      <button id="hint-button" class="hint-button" :class="{ active: isActive }" @click="showTooltip($event)">
         ?
       </button>
     <tooltip v-if="isActive" :hint="hint"></tooltip>
@@ -26,15 +26,9 @@ export default {
     document.addEventListener('click', this.documentClick)
   },
   methods: {
-    showTooltip: function () {
-      if (this.isActive) {
-        this.isActive = false
-      }
-      else {
-        setTimeout(() => {
-          this.isActive = true
-        }, 0)
-      }
+    showTooltip: function (event) {
+      this.isActive = !this.isActive
+      event.stopPropagation()
     },
     documentClick: function () {
         this.isActive = false
