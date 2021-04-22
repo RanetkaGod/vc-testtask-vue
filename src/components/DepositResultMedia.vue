@@ -104,6 +104,7 @@ export default {
     &__info
       @extend %regular-text
       margin: 8px 0
+      color: $font-color
       white-space: normal
       display: inline-block
 

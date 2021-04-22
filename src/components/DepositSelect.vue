@@ -24,6 +24,7 @@ export default {
   width: 100%
   padding: $padding-main
   .content
+    color: $font-color
     margin-bottom: 48px
     .content__item
       margin: 0

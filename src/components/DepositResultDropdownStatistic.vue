@@ -104,6 +104,9 @@ export default {
           font-size: 22px
           margin-top: 14px
 
+      .statistic-description
+        color: $font-color
+
     .statistic-donuts
       display: flex
       width: 100%

@@ -20,6 +20,7 @@ export default {
 .content
   overflow: auto
   padding: 0 $padding-main $padding-main $padding-main
+  color: $font-color
 
   .content__item
     margin: 6px 0
