@@ -1,8 +1,7 @@
 <template>
-  <div class="coins-wrapper">
-    <div class="coins">
-      <img v-for="key in calculatedCoins" :style="{ marginLeft: (key-1)*18+'px'}" :key="key" class="coins__image" src="../assets/Money.png"/>
-    </div>
+  <div class="coins">
+    <img v-for="key in calculatedCoins" :style="{ marginLeft: (key-1)*18+'px'}" :key="key" class="coins__item"
+         src="../assets/Money.png"/>
   </div>
 </template>
 
@@ -24,18 +23,16 @@ export default {
 <style lang="sass" scoped>
 @import "src/styles/variables"
 
-.coins-wrapper
+.coins
   height: 55px
-  .coins
-    height: 55px
-    position: relative
-    display: grid
-    grid-template-columns: min-content
-    justify-content: center
-    grid-template-rows: 1fr
-    .coins__image
-      grid-area: 1 / 1
-      display: flex
+  position: relative
+  display: grid
+  grid-template-columns: min-content
+  justify-content: center
+  grid-template-rows: 1fr
+
+  .coins__item
+    grid-area: 1 / 1
 
 @include tablet
   .coins-wrapper
