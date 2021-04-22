@@ -1,7 +1,7 @@
 <template>
   <div class="coins">
     <img v-for="key in calculatedCoins" :style="{ marginLeft: (key-1)*18+'px'}" :key="key" class="coins__item"
-         src="../assets/Money.png"/>
+         src="../assets/coin.png" alt="coin"/>
   </div>
 </template>
 
