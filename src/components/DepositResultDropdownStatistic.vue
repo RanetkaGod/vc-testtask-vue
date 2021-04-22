@@ -2,20 +2,20 @@
   <div id="dropdown-content" class="statistic-wrapper">
     <div class="statistic">
       <div class="statistic-visualisation">
-        <div class="statistic-visualisation-graph">
-          <div class="statistic__filler"></div>
-          <img class="statistic__image" :src="statisticImageUrl" alt="Средний вклад читателей"/>
-          <span class="statistic__money">~ {{ averageDeposit | addNumberSpaces }} &#8381;</span>
+        <div class="statistic-visualisation__graph">
+          <div class="statistic-visualisation__graph__filler"></div>
+          <img class="statistic-visualisation__graph__image" :src="statisticImageUrl" alt="Средний вклад читателей"/>
+          <span class="statistic-visualisation__graph__money">~ {{ averageDeposit | addNumberSpaces }} &#8381;</span>
         </div>
-        <div class="statistic-description">
+        <div class="statistic-visualisation__description">
           <p>в среднем откладывают читатели vc.ru</p>
         </div>
       </div>
       <div class="statistic-donuts">
         <div class="statistic-donuts__item" v-for="(value, key) in readersStatistic" :key="key">
           <chart-donut :percent="value.percent" circle-color="#fff" segment-color="#FE4D4A"/>
-          <span class="percentage">{{ value.percent }}%</span>
-          <span class="description">{{ value.description }}</span>
+          <span class="statistic-donuts__item__percentage">{{ value.percent }}%</span>
+          <span class="statistic-donuts__item__description">{{ value.description }}</span>
         </div>
       </div>
     </div>
@@ -88,7 +88,7 @@ export default {
       flex-direction: column
       align-items: center
 
-      .statistic-visualisation-graph
+      &__graph
         display: flex
         flex-direction: column
         justify-content: space-between
@@ -99,12 +99,12 @@ export default {
         border-radius: 100%
         background-color: $background-color-accessory-light
 
-        .statistic__money
+        &__money
           @extend %highlight-text
           font-size: 22px
           margin-top: 14px
 
-      .statistic-description
+      &__description
         color: $font-color
 
     .statistic-donuts
@@ -122,10 +122,12 @@ export default {
         align-items: center
         max-width: 190px
 
-        .percentage
+        &__percentage
           @extend %highlight-text
           font-size: 22px
           margin: 10px 0
+        &__description
+          color: $font-color
 
 @include tablet
   .statistic-wrapper
@@ -133,7 +135,7 @@ export default {
       .statistic-donuts
         flex-direction: column
 
-        .statistic-donuts__item
+        &__item
           margin-bottom: 20px
 
           &:last-child

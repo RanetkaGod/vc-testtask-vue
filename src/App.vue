@@ -49,6 +49,7 @@ export default {
 
 <style lang="sass">
 @import "styles/normalize.css"
+@import "styles/variables"
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap')
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap')
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap')
@@ -62,7 +63,7 @@ body
 
 #app
   font-family: 'Roboto', sans-serif
-  max-width: 700px
+  max-width: $app-max-width
   width: 100%
   background: white
   display: block
