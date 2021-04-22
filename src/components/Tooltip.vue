@@ -36,7 +36,7 @@ export default {
 .hint-modal
   position: absolute
   z-index: 99
-  color: #ffffff
+  color: $font-reverse-color
   background: $complementary-color
   border-radius: $border-radius-main
   padding: $tooltip-padding

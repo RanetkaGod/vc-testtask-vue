@@ -29,11 +29,11 @@ export default {
   name: "ReadersStatistic",
   components: {ChartDonut},
   props: {
-    averageDeposit: Number, // Средний депозит
+    averageDeposit: Number, // Средний депозит читателей
   },
   data() {
     return {
-      readersStatistic: {
+      readersStatistic: { // Статистика, получаемая от сервера
         oneThousand: {
           percent: 52,
           description: 'читателей откладывают\n' +

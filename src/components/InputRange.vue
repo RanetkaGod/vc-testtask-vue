@@ -66,7 +66,7 @@ export default {
     padding: 0 7px
     background: $complementary-color
     width: auto
-    color: white
+    color: $font-reverse-color
     font-size: 16px
     font-weight: 500
     bottom: 30px

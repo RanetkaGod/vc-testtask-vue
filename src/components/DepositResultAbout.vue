@@ -38,7 +38,7 @@ export default {
     height: 45px
     width: 134px
     border-radius: $border-radius-main
-    color: white
+    color: $font-reverse-color
     font-weight: 500
     font-size: 16px
     margin-left: 30px
@@ -46,7 +46,7 @@ export default {
     transition: background-color .2s ease
 
     &:hover
-      background: #ef3124
+      background: $complementary-hover-color
 
     &:focus
       outline: none

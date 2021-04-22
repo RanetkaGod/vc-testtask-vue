@@ -68,7 +68,7 @@ export default {
     transition: all .2s ease
     &.active
       background: $complementary-color
-      color: white
+      color: $font-reverse-color
       &:after
         content: ''
         position: absolute

@@ -83,6 +83,7 @@ export default {
 
 .deposit-media
   display: grid
+  justify-content: center
   grid-template-columns: 1fr 1fr 1fr
   padding: 0 $padding-main $padding-main $padding-main
 
@@ -98,6 +99,7 @@ export default {
       @extend %highlight-text
       margin: 0
       font-size: 25px
+      white-space: nowrap
 
     &__info
       @extend %regular-text
